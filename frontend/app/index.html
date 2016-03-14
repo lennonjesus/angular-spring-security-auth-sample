@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="MyApp">
+<html ng-app="myApp">
   <head>
 
     <meta charset="utf-8">
@@ -35,7 +35,11 @@
   </head>
   <body>
 
-    <div ng-view></div >
+    <div ui-view authenticated-application></div >
+
+
+
+
 
     <!-- build:vendorjs js/vendor.min.js -->
 
@@ -50,10 +54,7 @@
 
     <!-- inject:js -->
 
-    <script src="app.module.js"></script>
-    <script src="app.config.js"></script>
-    <script src="main.controller.js"></script>
-    <script src="login.controller.js"></script>
+
 
 
 
@@ -61,6 +62,23 @@
     <!-- endinject -->
 
     <!-- endbuild -->
+
+
+
+    <script src="modules/app.module.js" ></script>
+
+    <script src="modules/app.config.js" ></script>
+    <script src="modules/app.env.config.js" ></script>
+
+    <script src="modules/app.route.js" ></script>
+    <script src="modules/authenticated-app.directive.js" ></script>
+    <script src="modules/base64.service.js" ></script>
+    <script src="modules/main/main.controller.js" ></script>
+    <script src="modules/naoseiondevai.controller.js" ></script>
+    <script src="modules/support.service.js" ></script>
+    <script src="modules/util.js" ></script>
+    <script src="modules/login/login.controller.js" ></script>
+    <script src="modules/login/login.service.js" ></script>
 
   </body>
 </html>
