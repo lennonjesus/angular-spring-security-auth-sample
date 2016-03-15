@@ -86,8 +86,8 @@ gulp.task('default', [], function () {
 
 gulp.task('serve', ['usemin'], function () {
 
-  var proxyOptions = url.parse('http://localhost:8080/angular-spring-security-auth-sample/api');
-  proxyOptions.route = '/angular-spring-security/api';
+  var proxyOptions = url.parse('http://localhost:8080/sample/api');
+  proxyOptions.route = '/sample/api';
 
   browserSync.init({
     port: 9000,
