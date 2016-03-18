@@ -5,6 +5,10 @@
  *  license url http://www.apache.org/licenses/LICENSE-2.0.txt
  */
 package com.lennonjesus.auth.security;
+import com.lennonjesus.auth.security.handler.AjaxAuthenticationFailureHandler;
+import com.lennonjesus.auth.security.handler.AjaxAuthenticationSuccessHandler;
+import com.lennonjesus.auth.security.handler.AjaxLogoutSuccessHandler;
+import com.lennonjesus.auth.security.provider.SecurityAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
