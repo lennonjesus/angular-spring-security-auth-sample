@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by igor.custodio on 23/01/2015.
+ *
  */
 @Service
 public class SecurityAuthenticationProvider implements AuthenticationProvider {
@@ -27,14 +27,19 @@ public class SecurityAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String name = authentication.getName();
         String password = authentication.getCredentials().toString();
-        if (name.equals("linkar") && password.equals("pwd")) {
+
+        if (name.equals("user") && password.equals("user")) {
             List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
             grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
-            Authentication auth = new UsernamePasswordAuthenticationToken(name, password, grantedAuths);
-            return auth;
-        } else {
-            return null;
+            return new UsernamePasswordAuthenticationToken(name, password, grantedAuths);
+        } if (name.equals("admin") && password.equals("admin")) {
+            List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
+            grantedAuths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            return new UsernamePasswordAuthenticationToken(name, password, grantedAuths);
         }
+
+        return null;
+
     }
 
     @Override
