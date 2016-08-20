@@ -16,11 +16,7 @@ $ mvn spring-boot:run
 
 #### Install frontend project dependencies
 ```
-$ npm install
-```
-
-```
-$ bower install
+$ npm install -g gulp bower && npm install && bower install 
 ```
 
 #### Run frontend project
