@@ -4,15 +4,19 @@
   describe("Hello Controller Testing", function() {
 
     beforeEach(module('hello'));
-    beforeEach(module('ngRoute'));
 
-    var $controller,$httpBackend;
+    var vm, $httpBackend, $rootScope;
 
-    beforeEach(inject(function(_$controller_, _$httpBackend_){
+    beforeEach(inject(function($controller, _$httpBackend_, _$rootScope_) {
+        vm = $controller('home');
         $httpBackend = _$httpBackend_;
-        // The injector unwraps the underscores (_) from around the parameter names when matching
-        $controller = _$controller_;
+        $rootScope = _$rootScope_;
+
+//        $templateCache = _$templateCache_;
+//        $templateCache.put('module/validacao/filtro/semRelatorio.html', '');
     }));
+
+
 
     it("Teste de chamada a home controller",function(){
 
@@ -21,20 +25,20 @@
             content: 'Hello World'
         }
 
-        var endpoint = '/sample/api/hello';
+        var endpoint = '/sample/api/resource/';
 
         $httpBackend
-        .when('GET', endpoint)
-        .respond(200, greetingMock);
+            .when('GET', endpoint)
+            .respond(200, greetingMock);
 
-        var $scope = {};
-        var controller = $controller('home', { $scope: $scope});
+        vm.blah();
 
-        //$httpBackend.expectGET(endpoint);
-
-        expect(controller.greeting).toEqual(greetingMock);
-
+        $httpBackend.expectGET(endpoint);
         $httpBackend.flush();
+
+        $rootScope.$apply();
+
+        expect(vm.greeting).toEqual(greetingMock);
 
          $httpBackend.verifyNoOutstandingExpectation();
          $httpBackend.verifyNoOutstandingRequest();

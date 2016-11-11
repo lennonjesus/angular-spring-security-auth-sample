@@ -80,5 +80,13 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 	var self = this;
 	$http.get('/sample/api/resource/').success(function(data) {
 		self.greeting = data;
-	})
+	});
+
+	self.blah = function() {
+	   $http.get('/sample/api/resource/').success(function(data) {
+       		self.greeting = data;
+       	});
+
+	};
+
 });
