@@ -43,7 +43,9 @@ http://localhost:9000
 
 #### Contributions
 
-Issues and pull requests are welcome!
+[Issues](https://github.com/lennonjesus/angular-spring-security-auth-sample/issues) 
+and [pull requests](https://github.com/lennonjesus/angular-spring-security-auth-sample/pulls) 
+are welcome!
 
 #### LICENSE
 
