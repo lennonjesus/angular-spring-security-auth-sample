@@ -12,6 +12,7 @@ var
   jshintStylish   = require('jshint-stylish'),
   autoprefixer    = require('gulp-autoprefixer'),
   url             = require('url'),
+  Server          = require('karma').Server,
   inject          = require('gulp-inject');
 ;
 
@@ -46,6 +47,25 @@ gulp.task('serve', [], function () {
   });
 
   gulp.watch(basePaths.src + '**/*', ['change-src']);
+});
 
 
+ /**
+  * Run test once and exit
+  */
+gulp.task('test', function (done) {
+   new Server({
+     configFile: __dirname + '/test/karma.conf.js',
+     singleRun: true
+   }, done).start();
+});
+
+
+/**
+ * Watch for file changes and re-run tests on each change
+ */
+gulp.task('tdd', function (done) {
+  new Server({
+    configFile: __dirname + '/test/karma.conf.js'
+  }, done).start();
 });
