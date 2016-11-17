@@ -6,24 +6,9 @@ module.exports = function(config) {
         files: [
             'bower_components/angular/angular.js',
             'bower_components/angular-route/angular-route.min.js',
-//            'bower_components/angular-ui-router/release/angular-ui-router.js',
-//
-            /*
-            'bower_components/angular-animate/angular-animate.js',
-            'bower_components/angular-cookies/angular-cookies.js',
-            'bower_components/angular-http-auth/src/http-auth-interceptor.js',
-            'bower_components/angular-resource/angular-resource.js',
-            'bower_components/angular-sanitize/angular-sanitize.js',
-            'bower_components/angular-translate/angular-translate.js',
-            'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-            */
             'bower_components/angular-mocks/angular-mocks.js',
             'app/hello.js',
             'test/unit/*.spec.js'
-
-        ],
-
-        exclude: [
 
         ],
 

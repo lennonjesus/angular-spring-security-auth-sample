@@ -12,8 +12,6 @@
         $httpBackend = _$httpBackend_;
         $rootScope = _$rootScope_;
 
-//        $templateCache = _$templateCache_;
-//        $templateCache.put('module/validacao/filtro/semRelatorio.html', '');
     }));
 
 
@@ -31,7 +29,7 @@
             .when('GET', endpoint)
             .respond(200, greetingMock);
 
-        vm.blah();
+        vm.exibirHome();
 
         $httpBackend.expectGET(endpoint);
         $httpBackend.flush();
