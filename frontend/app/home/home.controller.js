@@ -3,9 +3,9 @@
     'use strict';
     angular.module('app').controller('HomeController',HomeController);
 
-    HomeController.$inject = ['$http']
+    HomeController.$inject = ['$http','navigationService']
 
-    function HomeController($http){
+    function HomeController($http,navigationService){
 
         var vm = this;
         vm.greeting = {};
@@ -14,13 +14,11 @@
         vm.init();
 
         function init() {
+          navigationService.getResource().then(function(data){
+              vm.greeting = data;
 
-            $http.get('/sample/api/resource/').success(function(data) {
-                            vm.greeting = data;
-                            vm.authenticated = true;
-                        });
+          });
         }
     }
-
 
 })();

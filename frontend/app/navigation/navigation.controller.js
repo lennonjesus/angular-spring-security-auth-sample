@@ -4,22 +4,23 @@
 
     angular.module('app').controller('NavigationController',NavigationController);
 
-    NavigationController.$inject  = ['$http','$location','$route','$rootScope'];
+    NavigationController.$inject  = ['$http','$location','$route','$rootScope','navigationService'];
 
-    function NavigationController($http, $location, $route,$rootScope){
+    function NavigationController($http, $location, $route,$rootScope,navigationService){
 
         var vm = this;
         vm.credentials = {};
-        vm.authenticated = false;
         vm.tab = tab;
         vm.login = login;
         vm.logout = logout;
         vm.authenticate = authenticate;
+        vm.isAuthenticated = isAuthenticated;
 
         function tab(route) {
             return $route.current && route === $route.current.controller;
         }
 
+        /*
         function authenticate(credentials,callback){
 
             var headers = credentials ? {
@@ -27,6 +28,8 @@
                                 + btoa(credentials.username + ":"
                                         + credentials.password)
                  } : {};
+
+
 
             $http.get('/sample/api/user', {
                 headers : headers
@@ -36,7 +39,7 @@
                 } else {
                     $rootScope.authenticated = false;
                 }
-                callback && callback(vm.authenticated);
+                callback && callback(false);
             }).error(function() {
                 $rootScope.authenticated = false;
                 callback && callback(false);
@@ -44,8 +47,36 @@
 
 
         }
+        */
 
-        function login(){
+        function login() {
+
+          var headers = credentials ? {
+              authorization : "Basic "
+                 + btoa(credentials.username + ":"
+                 + credentials.password)
+          } : {};
+
+
+          navigationService.login(headers)
+          .then(getLoginSuccess)
+          .catch(function(message){
+
+              console.log("Login failed")
+              vm.error = true;
+              $location.path("/login");
+
+            });
+
+
+          function getLoginSuccess(data){
+              console.log("Login succeeded")
+              vm.error = false;
+              $location.path("/");
+          }
+
+
+             /*
             authenticate(vm.credentials, function(authenticated) {
                 if ($rootScope.authenticated) {
                     console.log("Login succeeded")
@@ -58,15 +89,17 @@
                     vm.error = true;
                     $rootScope.authenticated = false;
                 }
-            })
+            })*/
         }
 
         function logout(){
-            $http.post('/sample/api/logout', {}).finally(function() {
-                $rootScope.authenticated = false;
+            navigationService.logout().then(function(data){
                 $location.path("/");
             });
+       }
 
+       function isAuthenticated(){
+          return navigationService.isAuthenticated();
        }
 
     }
