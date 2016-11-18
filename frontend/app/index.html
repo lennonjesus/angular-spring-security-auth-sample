@@ -13,7 +13,7 @@
 </head>
 
 <body ng-app="app" ng-cloak class="ng-cloak">
-	<div class="container">
+	<div ng-controller="NavigationController as vm" class="container">
 		<ul class="nav nav-pills" role="tablist">
 			<li ng-class="{active:vm.tab('home')}"><a href="#/">home</a></li>
 			<li ng-class="{active:vm.tab('navigation')}"><a href="#/login">login</a></li>
@@ -30,4 +30,3 @@
   <script src="home/home.controller.js"></script>
 </body>
 </html>
-
