@@ -12,20 +12,22 @@
 </style>
 </head>
 
-<body ng-app="hello" ng-cloak class="ng-cloak">
-	<div ng-controller="navigation as nav" class="container">
+<body ng-app="app" ng-cloak class="ng-cloak">
+	<div class="container">
 		<ul class="nav nav-pills" role="tablist">
-			<li ng-class="{active:nav.tab('home')}"><a href="#/">home</a></li>
-			<li ng-class="{active:nav.tab('navigation')}"><a href="#/login">login</a></li>
-			<li ng-show="authenticated"><a href="" ng-click="nav.logout()">logout</a></li>
+			<li ng-class="{active:vm.tab('home')}"><a href="#/">home</a></li>
+			<li ng-class="{active:vm.tab('navigation')}"><a href="#/login">login</a></li>
+			<li ng-show="authenticated"><a href="" ng-click="vm.logout()">logout</a></li>
       <li ng-show="authenticated"><a href="#/outro" >outro</a></li>
 		</ul>
 	</div>
 	<div ng-view class="container"></div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js" type="text/javascript"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular-route.min.js" type="text/javascript"></script>
-
-
-  <script src="hello.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular-route.min.js" type="text/javascript"></script>
+	<script src="app.module.js"></script>
+	<script src="app.routes.js"></script>
+	<script src="navigation/navigation.controller.js"></script>
+  <script src="home/home.controller.js"></script>
 </body>
 </html>
+

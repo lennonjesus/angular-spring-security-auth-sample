@@ -4,11 +4,21 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
+
+       /* bower depencencies */
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'app/hello.js',
-      'test/unit/*.spec.js'
+
+      /* app source code */
+
+      'app/app.module.js',
+      'app/app.routes.js',
+      'app/home/home.controller.js',
+      'app/navigation/navigation.controller.js',
+
+      /* test code */
+      'test/unit/home/home.controller.spec.js'
     ],
 
     // web server port
@@ -35,11 +45,37 @@ module.exports = function(config) {
       'karma-phantomjs-launcher',
       //'karma-coverage',
       'karma-jasmine',
-      //'karma-jasmine-html-reporter'
     ],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+    /*
+    reporters: [
+        'coverage'
+    ],
+    */
+
+    /*
+    preprocessors: {
+        'app/app.module.js' : ['coverage'],
+        'app/app.routes.js': ['coverage'],
+        'app/home/home.controller.js' : ['coverage'],
+        'app/navigation/navigation.controller.js' : ['coverage'],
+        'test/unit/home/home.controller.spec.js' : ['coverage'],
+        'app/app.module.js' : ['coverage'],
+        'app/app.routes.js': ['coverage'],
+       },
+
+    coverageReporter: {
+          dir: 'test/coverage/',
+          subdir: 'phantom',
+          reporters: [
+            { type: 'html' },
+            { type: 'lcov' }
+          ]
+        }
+    */
   });
 };
