@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 cd api
 
-mvn clean test
+mvn test
 
 cd ../frontend
 
