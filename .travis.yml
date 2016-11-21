@@ -2,4 +2,4 @@ language: java
 
 script:
   - cd api && mvn test
-  - cd frontend && npm test
+  - cd ../frontend && npm test
