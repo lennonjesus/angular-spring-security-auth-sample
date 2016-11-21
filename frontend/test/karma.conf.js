@@ -16,6 +16,7 @@ module.exports = function(config) {
       'app/app.routes.js',
       'app/home/home.controller.js',
       'app/navigation/navigation.controller.js',
+      'app/navigation/navigation.service.js',
 
       /* test code */
       'test/unit/home/home.controller.spec.js'

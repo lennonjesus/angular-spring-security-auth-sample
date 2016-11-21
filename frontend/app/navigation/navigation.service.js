@@ -4,11 +4,8 @@
 
   function navigationService($http,$q) {
 
-    var authenticated = false;
-
     var navigationService = {
       logout : logout,
-      isAuthenticated : isAuthenticated,
       getResource : getResource,
       login:login
     };
@@ -21,7 +18,6 @@
       then(getLogoutSuccess);
 
       function getLogoutSuccess() {
-        authenticated = false;
         return $q.when();
       };
     }
@@ -35,10 +31,6 @@
       });
 
       return promise;
-    }
-
-    function isAuthenticated(){
-      return authenticated;
     }
 
     function getResource(){
