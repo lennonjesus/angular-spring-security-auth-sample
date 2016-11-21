@@ -4,7 +4,7 @@
   "description": "angular-spring-security-auth-sample",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm i && bower i && gulp test"
   },
   "repository": {
     "type": "git",
