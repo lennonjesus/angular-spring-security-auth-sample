@@ -2,4 +2,6 @@ language: java
 
 script:
   - cd api && mvn test
-  - cd ../frontend && npm test
+  - npm i -g bower
+  - npm i -g gulp
+  - cd ../frontend && npm i && bower i && npm test

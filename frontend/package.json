@@ -4,7 +4,7 @@
   "description": "angular-spring-security-auth-sample",
   "main": "index.js",
   "scripts": {
-    "test": "npm i && bower i && gulp test"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
