@@ -5,3 +5,8 @@ script:
   - npm i -g bower
   - npm i -g gulp
   - cd ../frontend && npm i && bower i && npm test
+
+cache:
+  directories:
+    - frontend/node_modules
+    - frontend/bower_components
