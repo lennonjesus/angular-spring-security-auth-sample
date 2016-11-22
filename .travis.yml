@@ -10,3 +10,4 @@ cache:
   directories:
     - frontend/node_modules
     - frontend/bower_components
+    - $HOME/.m2
