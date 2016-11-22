@@ -4,6 +4,8 @@ This project is a simple sample of authentication of an Angular JS frontend appl
 
 You should have Git, Java, Maven and NodeJS installed.
 
+[![Build Status](https://travis-ci.org/lennonjesus/angular-spring-security-auth-sample.svg?branch=master)](https://travis-ci.org/lennonjesus/angular-spring-security-auth-sample)
+
 #### Clone this repo
 ```
 $ git clone https://github.com/lennonjesus/angular-spring-security-auth-sample.git
@@ -16,7 +18,7 @@ $ mvn spring-boot:run
 
 #### Install frontend project dependencies
 ```
-$ npm install -g gulp bower && npm install && bower install 
+$ npm install -g gulp bower && npm install && bower install
 ```
 
 #### Run frontend project
@@ -38,13 +40,13 @@ http://localhost:9000
 
 #### TODO
 
-* [ ] Tests
+* [x] Tests
 * [ ] Persist auth token
 
 #### Contributions
 
-[Issues](https://github.com/lennonjesus/angular-spring-security-auth-sample/issues) 
-and [pull requests](https://github.com/lennonjesus/angular-spring-security-auth-sample/pulls) 
+[Issues](https://github.com/lennonjesus/angular-spring-security-auth-sample/issues)
+and [pull requests](https://github.com/lennonjesus/angular-spring-security-auth-sample/pulls)
 are welcome!
 
 #### LICENSE
