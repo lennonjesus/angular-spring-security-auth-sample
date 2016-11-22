@@ -1,22 +1,22 @@
-angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProvider) {
+angular.module('app', [ 'ngRoute' ]).config(function($routeProvider, $httpProvider) {
 
 	$routeProvider.when('/', {
-		templateUrl : 'home.html',
-		controller : 'home',
-		controllerAs: 'controller'
+		templateUrl : 'home/home.html',
+		controller : 'HomeController',
+		controllerAs: 'vm'
 	}).when('/login', {
-		templateUrl : 'login.html',
-		controller : 'navigation',
-		controllerAs: 'controller'
+		templateUrl : 'navigation/login.html',
+		controller : 'NavigationController',
+		controllerAs: 'vm'
 	}).when('/outro', {
-		templateUrl : 'outro.html',
-		controller : 'navigation',
-		controllerAs: 'controller'
+		templateUrl : 'navigation/outro.html',
+		controller : 'NavigationController',
+		controllerAs: 'vm'
 	}).otherwise('/');
 
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-}).controller('navigation',
+}).controller('NavigationController',
 
 		function($rootScope, $http, $location, $route) {
 
@@ -76,7 +76,7 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 				});
 			}
 
-		}).controller('home', function($http) {
+		}).controller('HomeController', function($http) {
 	var self = this;
 
 	self.exibirHome = function() {

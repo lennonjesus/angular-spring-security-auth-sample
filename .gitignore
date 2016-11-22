@@ -26,5 +26,6 @@ mvnw.cmd
 
 node_modules/
 bower_components/
+frontend/.bowerrc
 
 npm-debug.log
