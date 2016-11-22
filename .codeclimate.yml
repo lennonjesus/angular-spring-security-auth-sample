@@ -14,8 +14,6 @@ engines:
     enabled: true
 ratings:
   paths:
-    - frontend
     - **.js
-    - api
     - **.java
 exclude_paths: []
