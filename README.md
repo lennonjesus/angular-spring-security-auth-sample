@@ -5,6 +5,7 @@ This project is a simple sample of authentication of an Angular JS frontend appl
 You should have Git, Java, Maven and NodeJS installed.
 
 [![Build Status](https://travis-ci.org/lennonjesus/angular-spring-security-auth-sample.svg?branch=master)](https://travis-ci.org/lennonjesus/angular-spring-security-auth-sample)
+[![Code Climate](https://codeclimate.com/github/lennonjesus/angular-spring-security-auth-sample/badges/gpa.svg)](https://codeclimate.com/github/lennonjesus/angular-spring-security-auth-sample)
 
 #### Clone this repo
 ```
