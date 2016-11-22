@@ -14,12 +14,13 @@
 
     function logout(){
 
-      return $http.post('/sample/api/logout').
-      then(getLogoutSuccess);
+      var promise = $http.post('/sample/api/logout')
+      .then(getLogoutSuccess);
 
       function getLogoutSuccess() {
         return $q.when();
-      };
+      }
+      return promise;
     }
 
     function login(headers){
