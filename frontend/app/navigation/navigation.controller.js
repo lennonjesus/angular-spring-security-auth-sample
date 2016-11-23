@@ -16,7 +16,9 @@
     vm.logout = logout;
 
     function tab(route) {
-      return $route.current && route === $route.current.controller;
+      var retorno = $route.current && route === $route.current.controller;
+      console.log(retorno);
+      return retorno;
     }
 
     function login(){
@@ -38,8 +40,6 @@
         $location.path("/");
         $rootScope.authenticated = true;
         $rootScope.principal = data.principal;
-
-        //$rootScope.$apply();
         vm.error = false;
       }
 
@@ -56,11 +56,18 @@
 
     function logout(){
       navigationService.logout()
-      .then(getLogoutSuccess);
+      .then(getLogoutSuccess)
+      .catch(getLogoutError);
 
       function getLogoutSuccess(data){
           $rootScope.authenticated = false;
+          $rootScope.principal = null;
+          vm.error = false;
           $location.path("/");
+      }
+
+      function getLogoutError(err){
+          vm.error = true;
       }
 
     }

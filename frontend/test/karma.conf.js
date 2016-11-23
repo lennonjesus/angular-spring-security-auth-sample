@@ -45,7 +45,7 @@ module.exports = function(config) {
     plugins: [
       //  'karma-chrome-launcher',
       'karma-phantomjs-launcher',
-      //'karma-coverage',
+      'karma-coverage',
       'karma-jasmine',
     ],
 
@@ -53,22 +53,18 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
 
-    /*
+
     reporters: [
+        'progress',
         'coverage'
     ],
-    */
 
-    /*
+
     preprocessors: {
-        'app/app.module.js' : ['coverage'],
-        'app/app.routes.js': ['coverage'],
-        'app/home/home.controller.js' : ['coverage'],
-        'app/navigation/navigation.controller.js' : ['coverage'],
-        'test/unit/home/home.controller.spec.js' : ['coverage'],
-        'app/app.module.js' : ['coverage'],
-        'app/app.routes.js': ['coverage'],
-       },
+        'app/*.js' : ['coverage'],
+        'app/home/*.js' : ['coverage'],
+        'app/navigation/*.js' : ['coverage']
+    },
 
     coverageReporter: {
           dir: 'test/coverage/',
@@ -78,6 +74,7 @@ module.exports = function(config) {
             { type: 'lcov' }
           ]
         }
-    */
+
   });
+
 };
