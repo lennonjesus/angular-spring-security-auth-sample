@@ -13,11 +13,11 @@
     vm.init();
 
     function init() {
-       navigationService.getResource().then(getInitSuccess);
+      navigationService.getResource().then(getInitSuccess);
 
-       function getInitSuccess(data){
-         vm.greeting = data;
-       }
+      function getInitSuccess(data){
+        vm.greeting = data;
+      }
     }
   }
 
