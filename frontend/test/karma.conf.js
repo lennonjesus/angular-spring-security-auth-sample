@@ -5,13 +5,12 @@ module.exports = function(config) {
 
     files: [
 
-       /* bower depencencies */
+       /* bower dependencies */
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
 
       /* app source code */
-
       'app/app.module.js',
       'app/app.routes.js',
       'app/home/home.controller.js',
@@ -19,7 +18,9 @@ module.exports = function(config) {
       'app/navigation/navigation.service.js',
 
       /* test code */
-      'test/unit/home/home.controller.spec.js'
+      'test/unit/home/home.controller.spec.js',
+      'test/unit/navigation/navigation.service.spec.js',
+      'test/unit/navigation/navigation.controller.spec.js'
     ],
 
     // web server port
