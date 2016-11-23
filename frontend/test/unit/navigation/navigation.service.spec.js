@@ -20,7 +20,6 @@
     });
 
     it('Deve instanciar navigation service',function(){
-
       expect(navigationService).toBeDefined();
 
     });
@@ -47,7 +46,7 @@
     });
 
 
-    it('Deve retornar dados usuario autenticado',function(){
+    it('Deve realizar login e retornar dados usuario autenticado',function(){
 
       endpoint = '/sample/api/user';
 
@@ -61,6 +60,28 @@
 
       navigationService.login({"authorization":"Basic xyz"}).then(function (response) {
           expect(response).toEqual(usuario);
+      });
+
+      $httpBackend.expectGET(endpoint,cabecalho);
+      $httpBackend.flush();
+
+    });
+
+
+    it('Deve causar erro ao realizar login',function(){
+
+      endpoint = '/sample/api/user';
+
+      var cabecalho = {"authorization":"Basic xyz","Accept":"application/json, text/plain, */*","X-Requested-With":"XMLHttpRequest"};
+
+      var err = {status:401,statusText:'unauthorized'};
+
+      $httpBackend
+          .whenGET(endpoint,cabecalho)
+          .respond(401,{},{},'unauthorized');
+
+      navigationService.login({"authorization":"Basic xyz"}).catch(function (response) {
+          expect(response).toEqual(err);
       });
 
       $httpBackend.expectGET(endpoint,cabecalho);
@@ -84,32 +105,24 @@
 
     });
 
+    it('Deve exibir erro ao realizar logout',function(){
 
-    /*
-    it('Deve retornar usuario autenticado',function(){
+      endpoint = '/sample/api/logout';
 
-      endpoint = '/sample/api/user';
-
-
+      var responseMock = {status:500, statusText:'Nao foi possivel realizar a operacao'};
 
       $httpBackend
-          .whenGET(endpoint)
-          .respond(401,undefined,{},'unauthorized');
+          .whenPOST(endpoint)
+          .respond(500,{},{},'Nao foi possivel realizar a operacao');
 
-      navigationService.login({authorization:'Basic blablabla'}).catch(function(erro) {
-        console.log(erro);
-        //expect(texto).toEqual(error);
+      navigationService.logout().catch(function (err) {
+        expect(err).toEqual(responseMock);
       });
 
-
-      $httpBackend.expectGET(endpoint);
+      $httpBackend.expectPOST(endpoint);
       $httpBackend.flush();
 
-      $httpBackend.verifyNoOutstandingExpectation();
-      $httpBackend.verifyNoOutstandingRequest();
-
     });
-    */
 
   });
 })();
