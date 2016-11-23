@@ -15,11 +15,17 @@
     function logout(){
 
       var promise = $http.post('/sample/api/logout')
-      .then(getLogoutSuccess);
+      .then(getLogoutSuccess)
+      .catch(getLogoutError);
 
       function getLogoutSuccess() {
         return $q.when();
       }
+
+      function getLogoutError(err) {
+        return $q.reject({status:err.status, statusText:err.statusText});
+      }
+
       return promise;
     }
 
@@ -27,9 +33,16 @@
       var promise = $http.get('/sample/api/user', {
         headers : headers
       })
-      .then(function(response) {
+      .then(getLoginSuccess)
+      .catch(getLoginError);
+
+      function getLoginSuccess(response){
         return response.data;
-      });
+      }
+
+      function getLoginError(err) {
+        return $q.reject({status:err.status, statusText:err.statusText});
+      }
 
       return promise;
     }

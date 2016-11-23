@@ -33,28 +33,36 @@
       .then(getLoginSuccess)
       .catch(getLoginError);
 
-
       function getLoginSuccess(data){
-        console.log("Login succeeded")
-        $rootScope.authenticated = true;
+        console.log("Login succeeded");
         $location.path("/");
+        $rootScope.authenticated = true;
+        $rootScope.principal = data.principal;
+
+        //$rootScope.$apply();
+        vm.error = false;
       }
 
       function getLoginError(message){
         $location.path("/login");
-        var erro = {status:message.status, statusText:message.statusText};
         console.error('ocorreu um erro');
-        console.error(erro);
+        console.error({status:message.status, statusText:message.statusText});
         $rootScope.authenticated = false;
+        $rootScope.principal = null;
         vm.error = true;
       }
+
     }
 
     function logout(){
-      navigationService.logout().then(function(data){
-        $rootScope.authenticated = false;
-        $location.path("/");
-      });
+      navigationService.logout()
+      .then(getLogoutSuccess);
+
+      function getLogoutSuccess(data){
+          $rootScope.authenticated = false;
+          $location.path("/");
+      }
+
     }
 
   }
