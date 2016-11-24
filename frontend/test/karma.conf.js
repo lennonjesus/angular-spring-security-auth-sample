@@ -7,7 +7,7 @@ module.exports = function(config) {
 
        /* bower dependencies */
       'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.min.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-mocks/angular-mocks.js',
 
       /* app source code */
