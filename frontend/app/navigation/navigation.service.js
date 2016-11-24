@@ -15,8 +15,8 @@
     function logout(){
 
       var promise = $http.post('/sample/api/logout')
-      .then(getLogoutSuccess)
-      .catch(getLogoutError);
+        .then(getLogoutSuccess)
+        .catch(getLogoutError);
 
       function getLogoutSuccess() {
         return $q.when();
@@ -30,11 +30,9 @@
     }
 
     function login(headers){
-      var promise = $http.get('/sample/api/user', {
-        headers : headers
-      })
-      .then(getLoginSuccess)
-      .catch(getLoginError);
+      var promise = $http.get('/sample/api/user', { headers : headers })
+        .then(getLoginSuccess)
+        .catch(getLoginError);
 
       function getLoginSuccess(response){
         return response.data;
@@ -48,8 +46,7 @@
     }
 
     function getResource(){
-      var promise = $http.get('/sample/api/resource/')
-      .then(getResourceSuccess);
+      var promise = $http.get('/sample/api/resource/').then(getResourceSuccess);
 
       function getResourceSuccess(response){
         return response.data;
@@ -59,6 +56,5 @@
     }
 
   }
-
 
 })();
