@@ -14,12 +14,12 @@ var
   url             = require('url'),
   Server          = require('karma').Server,
   inject          = require('gulp-inject');
-;
 
 var basePaths = {
   src: 'app/',
   dest: 'dist/',
-  tmp: 'tmp/'
+  tmp: 'tmp/',
+  dependency:'bower_components/'
 }
 
 
@@ -40,13 +40,17 @@ gulp.task('serve', [], function () {
 
   browserSync.init({
     port: 9000,
-    server: {
+    serveStatic:[{
+      route:['/bower_components'],
+      dir:'bower_components'
+    }],
+  server: {
       baseDir: basePaths.src,
       middleware: [proxy(proxyOptions)]
     }
   });
 
-  gulp.watch(basePaths.src + '**/*', ['change-src']);
+  gulp.watch(basePaths.src, ['change-src']);
 });
 
 

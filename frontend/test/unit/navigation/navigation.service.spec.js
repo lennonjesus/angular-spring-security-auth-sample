@@ -6,11 +6,14 @@
 
     beforeEach(module('app'));
 
-    var $httpBackend,navigationService,endpoint;
+    var $httpBackend,navigationService,endpoint,$templateCache;
 
-    beforeEach(inject(function(_navigationService_,_$httpBackend_){
+    beforeEach(inject(function(_navigationService_,_$httpBackend_,_$templateCache_){
       $httpBackend = _$httpBackend_;
       navigationService = _navigationService_;
+      $templateCache = _$templateCache_;
+      $templateCache.put('/navigation/login.html', '');
+      $templateCache.put('/home/home.html', '');
     }));
 
     afterEach(function(){
@@ -19,10 +22,12 @@
 
     });
 
+
     it('Deve instanciar navigation service',function(){
       expect(navigationService).toBeDefined();
-
     });
+
+
 
     it('Deve chamar metodo getResource',function(){
 
@@ -50,7 +55,7 @@
 
       endpoint = '/sample/api/user';
 
-      var cabecalho = {"authorization":"Basic xyz","Accept":"application/json, text/plain, */*","X-Requested-With":"XMLHttpRequest"};
+      var cabecalho = {"authorization":"Basic xyz","Accept":"application/json, text/plain, *\/*","X-Requested-With":"XMLHttpRequest"};
 
       var usuario = {'name':'teste','authenticated':true};
 
@@ -72,7 +77,7 @@
 
       endpoint = '/sample/api/user';
 
-      var cabecalho = {"authorization":"Basic xyz","Accept":"application/json, text/plain, */*","X-Requested-With":"XMLHttpRequest"};
+      var cabecalho = {"authorization":"Basic xyz","Accept":"application/json, text/plain, *\/*","X-Requested-With":"XMLHttpRequest"};
 
       var err = {status:401,statusText:'unauthorized'};
 
@@ -123,6 +128,7 @@
       $httpBackend.flush();
 
     });
+
 
   });
 })();

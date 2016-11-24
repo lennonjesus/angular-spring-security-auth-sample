@@ -4,20 +4,15 @@
 
   angular.module('app').controller('NavigationController',NavigationController);
 
-  NavigationController.$inject  = ['$location','$route','$rootScope','navigationService'];
+  NavigationController.$inject  = ['$rootScope','navigationService','$state'];
 
-  function NavigationController($location, $route,$rootScope,navigationService){
+  function NavigationController($rootScope,navigationService,$state){
 
     var vm = this;
 
     vm.credentials = {};
-    vm.tab = tab;
     vm.login = login;
     vm.logout = logout;
-
-    function tab(route) {
-      return $route.current && route === $route.current.controller;
-    }
 
     function login(){
       var headers = vm.credentials ? {
@@ -31,14 +26,14 @@
         .catch(getLoginError);
 
       function getLoginSuccess(data){
-        $location.path("/");
+        $state.go('home');
         $rootScope.authenticated = true;
         $rootScope.principal = data.principal;
         vm.error = false;
       }
 
       function getLoginError(message){
-        $location.path("/login");
+        $state.go('login');
         $rootScope.authenticated = false;
         $rootScope.principal = null;
         vm.error = true;
@@ -54,7 +49,7 @@
         $rootScope.authenticated = false;
         $rootScope.principal = null;
         vm.error = false;
-        $location.path("/");
+        $state.go("home");
       }
 
       function getLogoutError(err){
