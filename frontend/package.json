@@ -1,6 +1,6 @@
 {
   "name": "angular-spring-security-auth-sample",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "angular-spring-security-auth-sample",
   "main": "index.js",
   "scripts": {
