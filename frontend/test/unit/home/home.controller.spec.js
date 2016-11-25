@@ -5,7 +5,7 @@
 
     beforeEach(module('app'));
 
-    var vm,$q, navigationServiceMock,$rootScope;
+    var vm,$q, navigationServiceMock,$rootScope,$templateCache;
 
     beforeAll(function () {
 
@@ -19,16 +19,15 @@
 
     });
 
-    beforeEach(inject(function($controller, _$q_, _$rootScope_) {
+    beforeEach(inject(function($controller, _$q_, _$rootScope_,_$templateCache_) {
 
         $q = _$q_;
         $rootScope = _$rootScope_;
         vm = $controller('HomeController',{navigationService:navigationServiceMock});
+        $templateCache = _$templateCache_;
+        $templateCache.put('/navigation/login.html', '');
+        $templateCache.put('/home/home.html', '');
     }));
-
-    it("Teste instanciacao de home controller",function(){
-      expect(vm).toBeDefined();
-    });
 
     it("Teste de funcao de inicializacao",function(){
 
@@ -38,6 +37,7 @@
         $q.when(greetingMock)
       );
 
+      expect(vm).toBeDefined();
       vm.init();
 
       $rootScope.$apply();
