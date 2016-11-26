@@ -20,7 +20,8 @@ module.exports = function(config) {
       /* test code */
       'test/unit/home/home.controller.spec.js',
       'test/unit/navigation/navigation.service.spec.js',
-      'test/unit/navigation/navigation.controller.spec.js'
+      'test/unit/navigation/navigation.controller.spec.js',
+      'test/unit/app.routes.spec.js'
     ],
 
     // web server port
