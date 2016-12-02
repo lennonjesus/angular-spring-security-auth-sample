@@ -1,8 +1,5 @@
 (function(){
-
   'use strict';
-
-  angular.module('app').controller('NavigationController',NavigationController);
 
   NavigationController.$inject  = ['$rootScope','navigationService','$state'];
 
@@ -12,10 +9,6 @@
     vm.error = false;
     vm.credentials = {};
     vm.login = login;
-    vm.logout = logout;
-
-    vm.credentials.username = 'teste';
-    vm.credentials.password = '123';
 
     function login(){
       console.log('navigation controller');
@@ -44,23 +37,13 @@
         vm.error = true;
       }
     }
-
-    function logout(){
-      navigationService.logout()
-        .then(getLogoutSuccess)
-        .catch(getLogoutError);
-
-      function getLogoutSuccess(data){
-        $rootScope.authenticated = false;
-        $rootScope.principal = null;
-        vm.error = false;
-        $state.go("home");
-      }
-
-      function getLogoutError(err){
-        vm.error = true;
-      }
-    }
   }
 
+  var diretiva = {
+
+    templateUrl:'components/loginPanel/loginPanel.html',
+    controller: NavigationController,
+  };
+
+  angular.module('app').component('appLoginPanel',diretiva);
 })();

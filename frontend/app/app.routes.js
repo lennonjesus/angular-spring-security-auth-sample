@@ -8,25 +8,20 @@
   function Configuracao($httpProvider,$stateProvider,$urlRouterProvider){
 
     $stateProvider
+
       .state('home',{
         url:"/",
-        templateUrl:'/home/home.html',
-        controller : 'HomeController',
-        controllerAs: 'vm'
+        component: 'appUserInfoPanel',
       })
+
       .state('outro',{
-        url:'/outro',
-        templateUrl : '/home/outro.html',
-        controller : 'HomeController',
-        controllerAs: 'vm'
+        component:'appOutroPanel',
+        url:'/outro'
       })
       .state('login',{
         url:'/login',
-        templateUrl : '/navigation/login.html',
-        controller : 'NavigationController',
-        controllerAs: 'vm'
+        component:'appLoginPanel'
       });
-
     $urlRouterProvider.otherwise("/");
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   }

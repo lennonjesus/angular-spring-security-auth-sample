@@ -2,15 +2,4 @@
   <div class="panel-heading text-center">
       <h1><small class="text-info">Greeting</small></h1>
   </div>
-
-  <div ng-show="authenticated" class="text-center text-info">
-    <br/>
-    <p>Hello {{principal}}</p>
-    <p>The ID is {{vm.greeting.id}}</p>
-    <p>The content is {{vm.greeting.content}}</p>
-  </div>
-  <div ng-show="!authenticated">
-    <br/><br/>
-    <p class="text-center text-info">Login to see your greeting</p>
-  </div>
-<div>
+  <app-user-info-panel></user-info-panel>

@@ -1,33 +1,38 @@
 (function(){
 
   'use strict';
-  angular.module('app').controller('HomeController',HomeController);
 
-  HomeController.$inject = ['navigationService']
+  UserInfoPanelController.$inject = ['navigationService'];
 
-  function HomeController(navigationService){
+  function UserInfoPanelController(navigationService){
 
     var vm = this;
     vm.greeting = {};
     vm.init = init;
+    vm.init();
 
     function init(){
-      console.log('chamado init');
       navigationService.getResource()
       .then(getInitSuccess)
       .catch(getInitError);
 
       function getInitSuccess(data){
-        console.log('init retorno');
-        console.log(data);
         vm.greeting = data;
       }
 
       function getInitError(err){
-        console.log('init retorno erro');
         console.log(err);
       }
+
     }
   }
+
+  var diretiva = {
+    templateUrl:'components/userInfoPanel/userInfoPanel.html',
+    controller:UserInfoPanelController,
+  };
+
+  angular.module('app').component('appUserInfoPanel',diretiva);
+
 
 })();
