@@ -1,5 +1,5 @@
 (function() {
-
+  'use strict';
   angular.module('app').factory('navigationService',navigationService);
 
   function navigationService($http,$q) {

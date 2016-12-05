@@ -24,27 +24,26 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "angularjs#~1.4.8",
-    "angular-route": "~1.4.8",
     "angular-resource": "~1.4.8",
     "angular-sanitize": "~1.5.0",
     "angular-animate": "~1.5.0",
-    "angular-ui-router": "ui-route#~0.2.18",
     "angular-http-auth": "~1.2.3",
     "angular-cookies": "~1.5.0",
     "angular-translate": "~2.10.0",
     "angular-block-ui": "~0.2.2",
     "angular-translate-loader-static-files": "~2.10.0",
     "AngularJS-Toaster": "toaster#~1.2.0",
-    "satellizer": "~0.14.0"
-  },
-  "resolutions": {
-    "angular": "1.5.8"
+    "satellizer": "~0.14.0",
+    "bootstrap": "^3.3.7",
+    "angular-bootstrap": "^2.3.0",
+    "angular": "^1.5.9",
+    "angular-ui-router": "1.0.0-beta.3"
   },
   "devDependencies": {
-    "angular-mocks": "^1.5.8",
-    "bootstrap": "^3.3.7",
-    "angular-bootstrap": "^2.2.0",
-    "angular-ui-router": "^0.3.2"
+    "angular-mocks": "^1.5.8"
+  },
+  "resolutions": {
+    "angular": "^1.5.9",
+    "angular-ui-router": "1.0.0-beta.3"
   }
 }
