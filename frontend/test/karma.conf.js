@@ -13,15 +13,17 @@ module.exports = function(config) {
       /* app source code */
       'app/app.module.js',
       'app/app.routes.js',
-      'app/home/home.controller.js',
-      'app/navigation/navigation.controller.js',
       'app/navigation/navigation.service.js',
+      'app/components/loginPanel/app.login.panel.js',
+      'app/components/userInfoPanel/app.user.info.panel.js',
+      'app/components/outroPanel/app.outro.panel.js',
+      'app/components/logoutUser/app.logout.user.js',
 
       /* test code */
-      'test/unit/home/home.controller.spec.js',
       'test/unit/navigation/navigation.service.spec.js',
-      'test/unit/navigation/navigation.controller.spec.js',
-      'test/unit/app.routes.spec.js'
+      'test/unit/app.routes.spec.js',
+      'test/unit/components/loginPanel/app.login.panel.spec.js',
+      'test/unit/components/logoutUser/app.logout.user.spec.js',
     ],
 
     // web server port
