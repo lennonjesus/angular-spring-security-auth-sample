@@ -82,42 +82,6 @@
         expect($state.go).toHaveBeenCalledWith('login');
     });
 
-/*
-    it('Deve realizar logout com sucesso',function (){
-        vm.credentials = {username:'user',password:'user'};
-        vm.authenticated = true;
-
-        spyOn($state,'go').and.callThrough();
-
-        vm.logout();
-        $rootScope.$apply();
-
-        expect($rootScope.principal).toBeNull();
-        expect($rootScope.authenticated).toEqual(false);
-        expect($state.current.url).toEqual('/');
-        expect($state.go).toHaveBeenCalledWith('home');
-        expect(vm.error).toBe(false);
-    });
-
-
-    it('Nao deve realizar logout',function (){
-
-        vm = $controller('NavigationController',{navigationService:navigationServiceMockError});
-        vm.credentials = {username:'user',password:'user'};
-        $rootScope.principal = 'user';
-        $rootScope.authenticated = true;
-
-        spyOn($state,'go').and.callThrough();
-        vm.logout();
-        $rootScope.$apply();
-
-        expect($rootScope.principal).not.toBeNull();
-        expect($rootScope.principal).toBe('user');
-        expect($rootScope.authenticated).toEqual(true);
-        expect($state.current.url).toEqual('/');
-        expect(vm.error).toBe(true);
-    });
-    */
   });
 
 })();
