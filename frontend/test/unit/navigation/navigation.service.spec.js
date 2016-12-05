@@ -6,14 +6,11 @@
 
     beforeEach(module('app'));
 
-    var $httpBackend,navigationService,endpoint,$templateCache;
+    var $httpBackend,navigationService,endpoint;
 
-    beforeEach(inject(function(_navigationService_,_$httpBackend_,_$templateCache_){
+    beforeEach(inject(function(_navigationService_,_$httpBackend_){
       $httpBackend = _$httpBackend_;
       navigationService = _navigationService_;
-      $templateCache = _$templateCache_;
-      $templateCache.put('/navigation/login.html', '');
-      $templateCache.put('/home/home.html', '');
     }));
 
     afterEach(function(){
@@ -128,7 +125,6 @@
       $httpBackend.flush();
 
     });
-
 
   });
 })();

@@ -6,7 +6,7 @@
 
     <groupId>com.lennonjesus</groupId>
     <artifactId>angular-spring-security-auth-sample</artifactId>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

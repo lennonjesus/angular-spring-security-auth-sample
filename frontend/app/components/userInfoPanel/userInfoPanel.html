@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading text-center">
+      <h1><small class="text-info">Greeting</small></h1>
+  </div>
+  <div ng-show="$root.authenticated" class="text-center text-info">principal
+  <br/>
+  <p>Hello {{$root.principal}}</p>
+  <p>The ID is {{$ctrl.greeting.id}}</p>
+  <p>The content is {{$ctrl.greeting.content}}</p>
+  </div>
+  <div ng-show="!$root.authenticated">
+    <br/><br/>
+    <p class="text-center text-info">Login to see your greeting</p>
+  </div>
+</div>
