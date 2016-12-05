@@ -13,9 +13,9 @@
     it('Deve rotear corretamente para home',function(){
 
       pagina = $state.get('home');
-      expect(home.component).toBe('appUserInfoPanel');
-      expect(home.url).toBe('/');
-      expect(home.name).toBe('home');
+      expect(pagina.component).toBe('appUserInfoPanel');
+      expect(pagina.url).toBe('/');
+      expect(pagina.name).toBe('home');
 
 
     });
@@ -24,10 +24,9 @@
     it('Deve rotear corretamente para outro',function(){
 
       pagina = $state.get('outro');
-      console.log(home);
-      expect(home.component).toBe('appOutroPanel');
-      expect(home.url).toBe('/outro');
-      expect(home.name).toBe('outro');
+      expect(pagina.component).toBe('appOutroPanel');
+      expect(pagina.url).toBe('/outro');
+      expect(pagina.name).toBe('outro');
 
     });
 
@@ -35,9 +34,9 @@
 
       pagina = $state.get('login');
 
-      expect(home.component).toBe('appLoginPanel');
-      expect(home.url).toBe('/login');
-      expect(home.name).toBe('login');
+      expect(pagina.component).toBe('appLoginPanel');
+      expect(pagina.url).toBe('/login');
+      expect(pagina.name).toBe('login');
 
     });
 

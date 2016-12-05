@@ -22,6 +22,7 @@ function appLogoutUser(){
   }
 }
 
+angular.module('app').controller('LogoutController',LogoutController);
 
 LogoutController.$inject  = ['$rootScope','navigationService','$state'];
 
@@ -46,5 +47,7 @@ function LogoutController($rootScope,navigationService,$state){
     }
   }
 }
+
+
 
 })();

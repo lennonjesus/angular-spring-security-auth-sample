@@ -1,9 +1,9 @@
 (function(){
   'use strict';
 
-  NavigationController.$inject  = ['$rootScope','navigationService','$state'];
+  LoginController.$inject  = ['$rootScope','navigationService','$state'];
 
-  function NavigationController($rootScope,navigationService,$state){
+  function LoginController($rootScope,navigationService,$state){
 
     var vm = this;
     vm.error = false;
@@ -42,7 +42,7 @@
   var diretiva = {
 
     templateUrl:'components/loginPanel/loginPanel.html',
-    controller: NavigationController,
+    controller: LoginController,
   };
 
   angular.module('app').component('appLoginPanel',diretiva);

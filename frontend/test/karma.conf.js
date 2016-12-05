@@ -21,7 +21,9 @@ module.exports = function(config) {
 
       /* test code */
       'test/unit/navigation/navigation.service.spec.js',
-      'test/unit/app.routes.spec.js'
+      'test/unit/app.routes.spec.js',
+      'test/unit/components/loginPanel/app.login.panel.spec.js',
+      'test/unit/components/logoutUser/app.logout.user.spec.js',
     ],
 
     // web server port
